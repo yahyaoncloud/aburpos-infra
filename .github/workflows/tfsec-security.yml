@@ -1,0 +1,20 @@
+# .github/workflows/tfsec-security.yml
+
+name: Terraform Security Scan
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  tfsec-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run tfsec
+        uses: aquasecurity/tfsec-action@v1.0.3

@@ -1,0 +1,24 @@
+# .github/workflows/post-deployment-checks.yml
+
+name: Post Deployment Checks
+
+on:
+  workflow_run:
+    workflows:
+      - Terraform Apply Production
+    types:
+      - completed
+
+jobs:
+  smoke-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check API Health
+        run: curl -f https://api.example.com/health
+
+      - name: Check HTTPS Response
+        run: curl -I https://api.example.com
+
+      - name: Verify ALB Connectivity
+        run: nslookup api.example.com

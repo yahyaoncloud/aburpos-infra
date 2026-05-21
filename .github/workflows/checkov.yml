@@ -1,0 +1,19 @@
+# .github/workflows/checkov.yml
+
+name: Checkov Scan
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  checkov:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Checkov
+        uses: bridgecrewio/checkov-action@master
