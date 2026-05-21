@@ -21,6 +21,7 @@ override.tf.json
 # IDE
 .vscode/
 .idea/
+*.pem
 
 # OS
 .DS_Store

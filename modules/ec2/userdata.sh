@@ -1,10 +1,8 @@
-# modules/ec2/userdata.sh
-
 #!/bin/bash
 
-yum update -y
+dnf update -y
 
-yum install -y nginx
+dnf install -y nginx
 
 systemctl enable nginx
 systemctl start nginx
